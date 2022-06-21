@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+        .bird_area{
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            margin: 50px auto 0;
+        }
+
+        .bird_area .bird{
+            width: 20%;
+            cursor: pointer;
+            /* border: 1px solid #000; */
+            
+        }
+
+        .bird_area .bird img{
+            width: 100%;
+
+        }
+
+
+        .bird_show, .bird_show_area_2{
+            width: 50%;
+            height: 424px;
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #000;
+        }
+
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+    <div class="bird_area">
+        <div class="bird">
+            <img src="./img/NEPTUNE.png" alt="">
+        </div>
+        <div class="bird">
+            <img src="./img/SATURN.png" alt="">
+        </div>
+        <div class="bird">
+            <img src="./img/URANUS.png" alt="">
+        </div>
+        <div class="bird">
+            <img src="./img/VENUS.png" alt="">
+        </div>
+    </div>
+
+    <h2>方式一</h2>
+    <div class="bird_show_area">
+        <div class="bird_show">
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <h2>方式二</h2>
+    <div class="bird_show_area_2">
+
+        <div class="bird_show_2">
+            <img src="./img/NEPTUNE.png" alt="">
+        </div>
+        <div class="bird_show_2">
+            <img src="./img/SATURN.png" alt="">
+        </div>
+        <div class="bird_show_2">
+            <img src="./img/URANUS.png" alt="">
+        </div>
+        <div class="bird_show_2">
+            <img src="./img/VENUS.png" alt="">
+        </div>
+    </div>
+
+    <script>
+        $('.bird_show_2').hide();
+
+        $('.bird').click(function(){
+            // 方法一
+            $('.bird_show').children('img').attr('src', $(this).children('img').attr('src'));  
+
+            //方法二
+            let index = $.inArray($(this)[0], $('.bird'));
+            $('.bird_show_2').hide();
+            $(`.bird_show_area_2 div:nth-child(${index+1})`).show();
+        })
+    </script>
+</body>
+</html>
